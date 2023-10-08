@@ -24,17 +24,83 @@ class Sidebar extends React.Component {
                             <i className="fa fa-dashboard"></i> Dashboard
                         </Link>
                     </li>
+
+                    {/* User Management */}
+                    <li className="border-top my-3"></li>
                     <li className="mb-1">
+                        <Link tag="a" className="" to="/access">
+                        <i className="fa fa-check" aria-hidden="true"></i> Access
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/role">
+                        <i className="fa fa-users" aria-hidden="true"></i> Role
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/user">
+                        <i className="fa fa-user" aria-hidden="true"></i> User
+                        </Link>
+                    </li>
+
+                    {/* <li className="mb-1">
                         <Link tag="a" className="" to="/blank-page">
                             <i className="fa fa-file-o"></i> Blank Page
                         </Link>
-                    </li>
+                    </li> */}
+
+                    {/* System Setup */}
                     <li className="border-top my-3"></li>
+
                     <li className="mb-1">
+                        <Link tag="a" className="" to="/branch">
+                        <i className="fa-solid fa-warehouse" aria-hidden="true"></i> Branch
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/category">
+                        <i className="fa fa-category" aria-hidden="true"></i> Category
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/discount">
+                        <i className="fa fa-discount" aria-hidden="true"></i> Discount
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/loyalty-card">
+                        <i className="fa fa-card" aria-hidden="true"></i> Loyalty Card
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/product">
+                        <i className="fa fa-item" aria-hidden="true"></i> Product
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/supplier">
+                        <i className="fa fa-user" aria-hidden="true"></i> Supplier
+                        </Link>
+                    </li>
+
+                    <li className="mb-1">
+                        <Link tag="a" className="" to="/tax">
+                        <i className="fa fa-user" aria-hidden="true"></i> Tax
+                        </Link>
+                    </li>
+
+                    {/* <li className="mb-1">
                         <Link tag="a" className="" to="/typography">
                         <i className="fa fa-text-width" aria-hidden="true"></i> Typography
                         </Link>
-                    </li>
+                    </li> */}
                     
                     {/* collapsable list item example */}
                     {/* <li className="mb-1">
