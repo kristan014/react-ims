@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import adminLayout from "../../hoc/adminLayout"
+import DataTableComponent from "../../components/DataTableComponent";
 
 class BranchPage extends Component {
   constructor(props) {
@@ -9,7 +10,11 @@ class BranchPage extends Component {
   }
 
   render() {
-    return <div>BranchPage</div>;
+    return (<div>
+      BranchPage
+      <DataTableComponent />
+
+    </div>);
   }
 }
 
