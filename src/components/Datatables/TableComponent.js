@@ -20,7 +20,7 @@ export class TableComponent extends Component {
   
   render() {
     return (
-      <>  
+      <div className="mt-3">  
       <ColumnComponent updateState={this.updateState}/>
       <DataTable
       title="Movies"
@@ -32,7 +32,7 @@ export class TableComponent extends Component {
       expandableRows
       
       />
-     </> 
+     </div> 
     );
   }
 }

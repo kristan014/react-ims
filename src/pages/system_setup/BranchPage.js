@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import adminLayout from "../../hoc/adminLayout"
 import TableComponent from "../../components/Datatables/TableComponent";
+import FormComponent from "../../components/Forms/FormComponent";
 
 class BranchPage extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class BranchPage extends Component {
 
   render() {
     return (<div>
-      BranchPage
+     <h1>Branches</h1>
+      <FormComponent />
       <TableComponent />
 
     </div>);

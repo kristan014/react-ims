@@ -35,7 +35,7 @@ class ColumnComponent extends Component {
                     right: true,
                     cell: (row) => (
                         <Stack direction="horizontal" gap={1}>
-                            <ActionComponent id={row.id} btnColor={"btn-info"} btnIcon={"fa-info"}/>
+                            <ActionComponent id={row.id} btnColor={"btn-secondary"} btnIcon={"fa-info"}/>
                             <ActionComponent id={row.id} btnColor={"btn-success"} btnIcon={"fa-edit"}/>
                             <ActionComponent id={row.id} btnColor={"btn-danger"} btnIcon={"fa-trash"}/>
                         </Stack>
