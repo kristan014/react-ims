@@ -33,8 +33,8 @@ function App() {
   return (
         <Router>
             <Routes>
-                <Route exact path='/' element={<DashboardPage/>} />
-                <Route exact path='/login' element={<LoginPage/>} />
+                <Route exact path='/' element={<LoginPage/>} />
+                <Route exact path='/dashboard' element={<DashboardPage/>} />
                 <Route exact path='/reset-password' element={<ResetPassword/>} />
                 <Route exact path='/profile' element={<ProfilePage/>} />
                 <Route exact path='/change-password' element={<ChangePasswordPage/>} />
