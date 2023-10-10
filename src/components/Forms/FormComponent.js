@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import FormInput from "./FormInput";
-import FormButtons from "./FormButtons";
+import FormInputComponent from "./FormInputComponent";
+import FormButtonComponent from "./FormButtonComponent";
 import Stack from "react-bootstrap/Stack";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,27 +13,27 @@ export class FormComponent extends Component {
           <form id="form" name="form" encType="multipart/form-data">
             {/*Fields */}
             <Row>
-              <FormInput label={"Branch Name"} />
-              <FormInput label={"Manager"} />
+              <FormInputComponent label={"Branch Name"} />
+              <FormInputComponent label={"Manager"} />
             </Row>
 
             {/*Buttons */}
             <Row className="mt-3">
               <Col>
                 <Stack direction="horizontal" gap={2}>
-                  <FormButtons
+                  <FormButtonComponent
                     type={"reset"}
                     color={"btn-secondary"}
                     name={"Cancel"}
                     show={true}
                   />
-                  <FormButtons
+                  <FormButtonComponent
                     type={"submit"}
                     color={"btn-primary"}
                     name={"Submit"}
                     show={true}
                   />
-                  <FormButtons
+                  <FormButtonComponent
                     type={"submit"}
                     color={"btn-primary"}
                     name={"Update"}
