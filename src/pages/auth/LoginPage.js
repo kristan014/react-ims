@@ -47,7 +47,8 @@ class LoginPage extends React.Component {
                 .then(data => {
                     if (data.success) {
                         console.log(data)
-                        this.setState({isAuthorized:true})
+                        localStorage.setItem('TOKEN',data.token)
+                         this.setState({isAuthorized:true})
                     }
                 });
         } catch (error) {

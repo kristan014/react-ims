@@ -45,7 +45,7 @@ class ColumnComponent extends Component {
             ]
         }
 
-        props.updateState(this.state.columns)
+        props.updateColumnState(this.state.columns)
 
     }
 
