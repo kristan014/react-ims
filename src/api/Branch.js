@@ -22,6 +22,7 @@ class Branch extends Component {
             .then(response => response.json())
             .then(data => {
                 // if (data.success) {
+                  // console.log(data)
                     this.props.updateRowState(data.data)
 
                 // }

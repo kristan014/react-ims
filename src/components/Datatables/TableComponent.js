@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import DataTable from "react-data-table-component";
-import Testdata from "../../api/Testdata";
+// import Testdata from "../../api/Testdata";
 import ColumnComponent from "./ColumnComponent";
-import Branch from "../../api/Branch";
+import RowComponent from "./RowComponent";
 
 export class TableComponent extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export class TableComponent extends Component {
     return (
       <div className="mt-3">  
       <ColumnComponent updateColumnState={this.updateColumnState}/>
-      <Branch updateRowState={this.updateRowState}/>
+      <RowComponent updateRowState={this.updateRowState}/>
       <DataTable
       title="Movies"
       columns={this.state.columns}
@@ -38,7 +38,7 @@ export class TableComponent extends Component {
       defaultSortFieldID={1}
       pagination
       selectableRows
-      expandableRows
+      // expandableRows
       
       />
      </div> 
