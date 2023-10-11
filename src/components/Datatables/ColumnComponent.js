@@ -8,21 +8,21 @@ class ColumnComponent extends Component {
         this.state = {
             columns: [
                 {
-                    name: "Title",
-                    selector: (row) => row.title,
+                    name: "branch_name",
+                    selector: (row) => row.branch_name,
                     sortable: true,
                     width: "30%"
                 },
                 {
-                    name: "Directior",
-                    selector: (row) => row.director,
+                    name: "email",
+                    selector: (row) => row.email,
                     sortable: true,
                     width: "30%"
 
                 },
                 {
-                    name: "Runtime (m)",
-                    selector: (row) => row.runtime,
+                    name: "status",
+                    selector: (row) => row.status,
                     sortable: true,
                     right: true,
                     width: "10%"
@@ -46,7 +46,7 @@ class ColumnComponent extends Component {
         }
 
         props.updateColumnState(this.state.columns)
-
+        // console.log(this.state.columns)
     }
 
     render() {

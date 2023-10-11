@@ -34,7 +34,7 @@ export class TableComponent extends Component {
       <DataTable
       title="Movies"
       columns={this.state.columns}
-      data={Testdata}
+      data={this.state.rows}
       defaultSortFieldID={1}
       pagination
       selectableRows

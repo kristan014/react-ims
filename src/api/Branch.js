@@ -8,10 +8,10 @@ class Branch extends Component {
 
   }
 
-  getDataTable = async () => {
+  getDataTable = async (apiItem) => {
     // console.log(localStorage.getItem('TOKEN'))
     try {
-        await fetch('http://localhost:3612/api/v1/branch/datatable', {
+        await fetch(`http://localhost:3612/api/v1/branch/datatable`, {
             headers: new Headers({
                 'Accept': 'application/json; charset=UTF-8',
                 'Authorization': 'Bearer ' + localStorage.getItem('TOKEN'), 
@@ -22,7 +22,6 @@ class Branch extends Component {
             .then(response => response.json())
             .then(data => {
                 // if (data.success) {
-                    console.log(data.data)
                     this.props.updateRowState(data.data)
 
                 // }
@@ -37,7 +36,7 @@ class Branch extends Component {
 
   render() {
 
-    return <></>;
+    return null;
   }
 }
 
