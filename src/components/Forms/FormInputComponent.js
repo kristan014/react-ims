@@ -4,7 +4,7 @@ import { Col } from "react-bootstrap";
 export class FormInput extends Component {
 
   onChange = (e) => {
-    console.log(e);
+    console.log(e.target.value);
   };
 
   render() {

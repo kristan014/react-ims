@@ -7,7 +7,18 @@ class BranchPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      branch_name: '',
+      manager: '',
+      contact_no: '',
+      email: '',
+      region: '',
+      barangay: '',
+      city: '',
+      zip_code: '',
+      street_name: '',
+      unit_floor: '',
+    };
   }
 
   render() {

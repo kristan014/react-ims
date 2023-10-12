@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import DataTable from "react-data-table-component";
-// import Testdata from "../../api/Testdata";
+import Testdata from "../../api/Testdata";
 import ColumnComponent from "./ColumnComponent";
 import RowComponent from "./RowComponent";
+
+
 
 export class TableComponent extends Component {
   constructor(props) {
@@ -38,7 +40,7 @@ export class TableComponent extends Component {
       defaultSortFieldID={1}
       pagination
       selectableRows
-      // expandableRows
+      expandableRows
       
       />
      </div> 
