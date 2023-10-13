@@ -8,23 +8,37 @@ class BranchPage extends Component {
     super(props);
 
     this.state = {
-      branch_name: '',
-      manager: '',
-      contact_no: '',
-      email: '',
-      region: '',
-      barangay: '',
-      city: '',
-      zip_code: '',
-      street_name: '',
-      unit_floor: '',
+      labels:{
+        branch_name: 'Branch Name',
+        manager: 'Manager',
+        contact_no: 'Contact No',
+        email: 'Email',
+        region: 'Region',
+        barangay: 'Barangay',
+        city: 'City',
+        zip_code: 'Zip Code',
+        street_name: 'Street Name',
+        unit_floor: 'Unit Floor',
+      },
+      values:{
+        branch_name: '',
+        manager: '',
+        contact_no: '',
+        email: '',
+        region: '',
+        barangay: '',
+        city: '',
+        zip_code: '',
+        street_name: '',
+        unit_floor: '',
+      }
     };
   }
 
   render() {
     return (<div>
      <h1>Branches</h1>
-      <FormComponent />
+      <FormComponent labels={this.state.labels} values={this.state.values}/>
       <TableComponent />
 
     </div>);

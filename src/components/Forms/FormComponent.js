@@ -6,34 +6,38 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export class FormComponent extends Component {
-
   render() {
+    this.temp = 0;
+
     return (
       <div className="card p-3" id="card">
         <div className="card-block">
           <form id="form" name="form" encType="multipart/form-data">
-            <Stack gap={2}>
             {/*Fields */}
-            <Row>
-              <FormInputComponent label={"Branch Name"} />
-              <FormInputComponent label={"Manager"} />
-              <FormInputComponent label={"Contact No"} />
-              <FormInputComponent label={"Email"} />
-            </Row>
 
-            <Row>
-              <FormInputComponent label={"Region"} />
-              <FormInputComponent label={"Barangay"} />
-              <FormInputComponent label={"City"} />
-              <FormInputComponent label={"Zip Code"} />
-            </Row>
+            <Stack gap={3}>
+              {Object.keys(this.props.labels).map((key, index1, test) => {
 
-            <Row>
-              <FormInputComponent label={"Street Name"} />
-              <FormInputComponent label={"Unit FLoor"} />
-            </Row>
-           </Stack>
-            {/*Buttons */}
+                if ((index1 + 1) % 4 === 0 || index1 === 0) {
+                  return (
+                    <Row key={index1}>
+
+                      {test.map((key, index2) => {
+                        this.temp++;
+                        if (this.temp > test.length) {
+                          return null
+                        }
+
+                        return <FormInputComponent key={index2} label={this.props.labels[key]} />
+                      })}
+
+                    </Row>
+                  )
+                }
+                return null
+              })}
+            </Stack>
+
             <Row className="mt-3">
               <Col>
                 <Stack direction="horizontal" gap={2}>
