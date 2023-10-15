@@ -28,7 +28,9 @@ class Branch extends Component {
   };
 
   // for getting specific row
-  getOne = () => {};
+  getOne = () => {
+    console.log("get one")
+  };
 
   // create
   create = (request) => {
@@ -54,10 +56,16 @@ class Branch extends Component {
   };
 
   // update
-  update = () => {};
+  update = () => {
+    console.log("update")
+
+  };
 
   // delete
-  delete = () => {};
+  delete = () => {
+    console.log("delete")
+
+  };
 
   render() {
     return null;
