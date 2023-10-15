@@ -15,8 +15,6 @@ class LoginPage extends React.Component {
             },
             isAuthorized: false
         };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // update states when chaging inputs
@@ -25,6 +23,7 @@ class LoginPage extends React.Component {
 
         const value = event.target.value;
 
+        // set the state on every change of login inputs
         this.setState({
             login: {    
                 ...this.state.login,
@@ -38,6 +37,7 @@ class LoginPage extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         try {
+            // make the request login
             fetch('http://localhost:3612/api/v1/login', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
@@ -45,6 +45,7 @@ class LoginPage extends React.Component {
             })
                 .then(response => response.json())
                 .then(data => {
+                    // if success, set a token and isAuth to true to be directed to dashboard
                     if (data.success) {
                         console.log(data)
                         localStorage.setItem('TOKEN',data.token)
@@ -96,6 +97,7 @@ class LoginPage extends React.Component {
                         className="link-danger">Register</a></p>
                 </div>
             </form>
+            {/* if auth becomes true it will be redirected to dashboard */}
             {this.state.isAuthorized && <Navigate to="/dashboard" />}
 
         </>

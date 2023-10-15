@@ -3,12 +3,13 @@ import { Col } from "react-bootstrap";
 
 export class FormInput extends Component {
 
+  
   onChange = (e) => {
-    console.log(e.target.value);
+    this.props.updateState(e.target.name,e.target.value)
   };
 
   render() {
-    const { label, value } = this.props;
+    const { label, value, name } = this.props;
 
     return (
       <Col md={3}>
@@ -16,6 +17,7 @@ export class FormInput extends Component {
         <input
           className="form-control"
           type="text"
+           name={name}
           value={value}
           onChange={(e) => this.onChange(e)}
         />

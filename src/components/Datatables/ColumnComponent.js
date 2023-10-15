@@ -6,29 +6,20 @@ class ColumnComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            columns: [
-                {
-                    name: "branch_name",
-                    selector: (row) => row.branch_name,
-                    sortable: true,
-                    width: "30%"
-                },
-                {
-                    name: "email",
-                    selector: (row) => row.email,
-                    sortable: true,
-                    width: "30%"
+            columns: []
+        }
 
-                },
-                {
-                    name: "status",
-                    selector: (row) => row.status,
-                    sortable: true,
-                    right: true,
-                    width: "10%"
+        // update the columns state to update the columns displayed 
+        props.updateColumnState(this.state.columns)
 
-                },
-                {
+        // push the columns defined from the parent component that will be displayed
+        this.props.tableColumn.forEach((column)=>{
+            this.state.columns.push(column)
+        })
+
+        // the last push will be the buttons
+        this.state.columns.push(
+             {
                     name: "Actions",
                     button: true,
                     width: "20%",
@@ -41,12 +32,9 @@ class ColumnComponent extends Component {
                         </Stack>
 
                     ),
-                },
-            ]
-        }
-
-        props.updateColumnState(this.state.columns)
-        // console.log(this.state.columns)
+                }
+        )
+     
     }
 
     render() {

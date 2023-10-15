@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import DataTable from "react-data-table-component";
-import Testdata from "../../api/Testdata";
 import ColumnComponent from "./ColumnComponent";
 import RowComponent from "./RowComponent";
-
 
 
 export class TableComponent extends Component {
@@ -15,15 +13,14 @@ export class TableComponent extends Component {
       rows: []
     };
 
-    this.updateColumnState = this.updateColumnState.bind(this) 
-    this.updateRowState = this.updateRowState.bind(this)     
-        
   }
   
+  // update the content of columns
   updateColumnState = (columnItem) => {  
     this.setState({columns : columnItem})  
   } 
 
+  // update the content of rows
   updateRowState = (rowItem) => {  
     this.setState({rows : rowItem})  
   } 
@@ -31,17 +28,21 @@ export class TableComponent extends Component {
   render() {
     return (
       <div className="mt-3">  
-      <ColumnComponent updateColumnState={this.updateColumnState}/>
-      <RowComponent updateRowState={this.updateRowState}/>
+      {/* Call Column Component to get the columns */}
+      <ColumnComponent updateColumnState={this.updateColumnState} tableColumn={this.props.tableColumn} />
+      
+      {/* Call Column Component to get the rows */}
+      <RowComponent updateRowState={this.updateRowState} apiSource={this.props.apiSource}/>
+     
+     {/* Call Datatable */}
       <DataTable
-      title="Movies"
+      title={this.props.title}
       columns={this.state.columns}
       data={this.state.rows}
       defaultSortFieldID={1}
       pagination
-      selectableRows
-      expandableRows
-      
+      // selectableRows
+      // expandableRows
       />
      </div> 
     );

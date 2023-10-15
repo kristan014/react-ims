@@ -1,31 +1,35 @@
 import React, { Component } from "react";
-// import Branch from "../../api/Branch";
 
 export class RowComponent extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       component: ''
     }
-    this.load = this.load.bind(this);
-
+    
+    // createRef is used to call a method from child component
+    this.child = React.createRef();
   }
-
+  
+  
+  //solved the no-op mount error
   componentDidMount() {
     this.load()
   }
 
+  // call the api source that will be displayed to the pages
   load = async () => {
-    let Branch = (await import("../../api/Branch")).default;
-    this.setState({ component: Branch })
+    let component = (await this.props.apiSource).default;
+    this.setState({ component: component })
+    this.child.current.getDataTable()
   };
 
 
   render() {
     return (
         <>
-        {this.state.component !== '' && <this.state.component updateRowState={this.props.updateRowState} />}
+        {/* if state is not null it will call the component needed for the request */}
+        {this.state.component !== '' && <this.state.component updateRowState={this.props.updateRowState} ref={this.child}/>}
       </>
     );
   }
