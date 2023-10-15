@@ -1,6 +1,8 @@
 import { Component } from "react";
 
 class Branch extends Component {
+
+  // for datatables
   getDataTable = async (apiItem) => {
     // console.log(localStorage.getItem('TOKEN'))
     try {
@@ -25,8 +27,10 @@ class Branch extends Component {
     }
   };
 
+  // for getting specific row
   getOne = () => {};
 
+  // create
   create = (request) => {
     try {
       fetch("http://localhost:3612/api/v1/branch", {
@@ -49,8 +53,10 @@ class Branch extends Component {
     }
   };
 
+  // update
   update = () => {};
 
+  // delete
   delete = () => {};
 
   render() {
