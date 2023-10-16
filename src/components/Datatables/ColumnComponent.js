@@ -26,8 +26,8 @@ class ColumnComponent extends Component {
                     right: true,
                     cell: (row) => (
                         <Stack direction="horizontal" gap={1}>
-                            <ActionComponent id={row.id} btnColor={"btn-secondary"} btnIcon={"fa-info"} apiSource={this.props.apiSource}/>
-                            <ActionComponent id={row.id} btnColor={"btn-success"} btnIcon={"fa-edit"} apiSource={this.props.apiSource}/>
+                            <ActionComponent id={row.id} btnColor={"btn-secondary"} btnIcon={"fa-info"} apiSource={this.props.apiSource} values={this.props.values} />
+                            <ActionComponent id={row.id} btnColor={"btn-success"} btnIcon={"fa-edit"} apiSource={this.props.apiSource} values={this.props.values} />
                             <ActionComponent id={row.id} btnColor={"btn-danger"} btnIcon={"fa-trash"} apiSource={this.props.apiSource}/>
                         </Stack>
 

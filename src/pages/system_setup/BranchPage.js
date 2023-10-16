@@ -57,8 +57,13 @@ class BranchPage extends Component {
       ],
      
     };
-  }
 
+  }
+  
+  getBranch = (values) => {
+    this.setState({values:values})
+  }
+  
   render() {
     return (
       <div>
@@ -67,6 +72,7 @@ class BranchPage extends Component {
         <TableComponent
           title={"Branches"}
           tableColumn={this.state.tableColumn}
+          values={this.state.values} 
           // to call the API for datatables of branch
           apiSource={import("../../api/Branch")}
         />

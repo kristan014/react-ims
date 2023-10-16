@@ -41,8 +41,6 @@ export class FormComponent extends Component {
   };
 
   render() {
-    // for stopping loop
-    this.temp = 0;
 
     return (
       <div className="card p-3" id="card">
@@ -57,15 +55,15 @@ export class FormComponent extends Component {
             {/*Fields */}
             <Stack gap={3}>
               {/* need to fix */}
-              {Object.keys(this.props.labels).map((key, index1, test) => {
+              {Object.keys(this.props.labels).map((key, index1, array) => {
                 if ((index1 + 1) % 4 === 0 || index1 === 0) {
+                  // console.log(index1)
+                  let indexStart = index1 % 4 === 0 ? index1 : index1+1
+                  let indexEnd = index1 % 4 === 0 ? index1+4 : index1+5
+
                   return (
                     <Row key={index1}>
-                      {test.map((key, index2) => {
-                        this.temp++;
-                        if (this.temp > test.length) {
-                          return null;
-                        }
+                      {array.slice(indexStart,indexEnd).map((key, index2) => {                    
                         return (
                           <FormInputComponent
                             key={index2}

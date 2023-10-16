@@ -29,7 +29,8 @@ export class TableComponent extends Component {
     return (
       <div className="mt-3">  
       {/* Call Column Component to get the columns */}
-      <ColumnComponent updateColumnState={this.updateColumnState} tableColumn={this.props.tableColumn} apiSource={this.props.apiSource}/>
+      <ColumnComponent updateColumnState={this.updateColumnState} tableColumn={this.props.tableColumn} apiSource={this.props.apiSource}
+      values={this.props.values} />
       
       {/* Call Column Component to get the rows */}
       <RowComponent updateRowState={this.updateRowState} apiSource={this.props.apiSource}/>
