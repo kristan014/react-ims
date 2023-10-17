@@ -28,8 +28,28 @@ class Branch extends Component {
   };
 
   // for getting specific row
-  getOne = () => {
-    console.log("get one")
+  getOne = async(id)  => {
+
+    try {
+      await fetch(`http://localhost:3612/api/v1/branch/${id}`, {
+        headers: new Headers({
+          Accept: "application/json; charset=UTF-8",
+          Authorization: "Bearer " + localStorage.getItem("TOKEN"),
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // if (data.success) {
+          // console.log(data)
+          this.props.getBranch(data.data);
+
+          // }
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // create

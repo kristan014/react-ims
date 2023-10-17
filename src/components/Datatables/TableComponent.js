@@ -14,38 +14,43 @@ export class TableComponent extends Component {
     };
 
   }
-  
+
   // update the content of columns
-  updateColumnState = (columnItem) => {  
-    this.setState({columns : columnItem})  
-  } 
+  updateColumnState = (columnItem) => {
+    this.setState({ columns: columnItem })
+  }
 
   // update the content of rows
-  updateRowState = (rowItem) => {  
-    this.setState({rows : rowItem})  
-  } 
-  
+  updateRowState = (rowItem) => {
+    this.setState({ rows: rowItem })
+  }
+
   render() {
     return (
-      <div className="mt-3">  
-      {/* Call Column Component to get the columns */}
-      <ColumnComponent updateColumnState={this.updateColumnState} tableColumn={this.props.tableColumn} apiSource={this.props.apiSource}
-      values={this.props.values} />
-      
-      {/* Call Column Component to get the rows */}
-      <RowComponent updateRowState={this.updateRowState} apiSource={this.props.apiSource}/>
-     
-     {/* Call Datatable */}
-      <DataTable
-      title={this.props.title}
-      columns={this.state.columns}
-      data={this.state.rows}
-      defaultSortFieldID={1}
-      pagination
-      // selectableRows
-      // expandableRows
-      />
-     </div> 
+      <div className="mt-3">
+        {/* Call Column Component to get the columns */}
+        <ColumnComponent 
+          updateColumnState={this.updateColumnState} 
+          tableColumn={this.props.tableColumn} 
+          apiSource={this.props.apiSource}
+          getBranch={this.props.getBranch} />
+
+        {/* Call Column Component to get the rows */}
+        <RowComponent 
+        updateRowState={this.updateRowState} 
+        apiSource={this.props.apiSource} />
+
+        {/* Call Datatable */}
+        <DataTable
+          title={this.props.title}
+          columns={this.state.columns}
+          data={this.state.rows}
+          defaultSortFieldID={1}
+          pagination
+        // selectableRows
+        // expandableRows
+        />
+      </div>
     );
   }
 }

@@ -37,7 +37,10 @@ export class FormComponent extends Component {
   // submit the form
   onSubmit = (event) => {
     event.preventDefault();
-    this.state !== null && this.child.current.create(this.state.fields);
+    console.log(this.state.fields)
+    console.log(this.props.values)
+
+    // this.state !== null && this.child.current.create(this.state.fields);
   };
 
   render() {
@@ -54,10 +57,10 @@ export class FormComponent extends Component {
           <form id="form" name="form" onSubmit={this.onSubmit}>
             {/*Fields */}
             <Stack gap={3}>
-              {/* need to fix */}
               {Object.keys(this.props.labels).map((key, index1, array) => {
                 if ((index1 + 1) % 4 === 0 || index1 === 0) {
-                  // console.log(index1)
+
+                  // index for slicing inner loop
                   let indexStart = index1 % 4 === 0 ? index1 : index1+1
                   let indexEnd = index1 % 4 === 0 ? index1+4 : index1+5
 

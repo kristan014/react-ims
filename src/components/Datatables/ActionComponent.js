@@ -26,10 +26,9 @@ export class ActionComponent extends Component {
     if (btn === "btn-danger") {
       this.child.current.delete();
     } else if (btn === "btn-success") {
-      console.log(this.props.values)
       this.child.current.update();
     } else {
-      this.child.current.getOne();
+      this.child.current.getOne(id);
     }
   };
 
@@ -41,6 +40,8 @@ export class ActionComponent extends Component {
         {this.state.component !== "" && (
           <this.state.component
             setState={this.props.setState}
+
+            getBranch={this.props.getBranch} 
             ref={this.child}
           />
         )}
