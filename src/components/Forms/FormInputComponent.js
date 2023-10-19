@@ -5,7 +5,7 @@ export class FormInput extends Component {
 
   
   onChange = (e) => {
-    this.props.updateState(e.target.name,e.target.value)
+    this.props.setValues(e.target.name,e.target.value)
   };
 
   render() {

@@ -11,7 +11,6 @@ export class FormComponent extends Component {
 
     this.state = {
       component: '',
-      fields: this.props.values
     }
 
     // createRef is used to call a method from child component
@@ -31,15 +30,18 @@ export class FormComponent extends Component {
     this.setState({ component: component });
   };
 
-  // update state of forms on every onChange of fields
-  updateState = (name, value) => {
-     this.setState({fields:{...this.state.fields, [name]: value }});
-  };
-
+  
   // submit the form
   onSubmit = (event) => {
     event.preventDefault();
-    this.state !== null && this.child.current.create(this.state.fields);
+
+    // if state is null it will not execute
+     this.state !== null && 
+        // if props id is not null it will not create, instead it will update
+        this.props.values.id === '' ?
+          this.child.current.create(this.props.values) : 
+          this.child.current.update(this.props.values)
+    
   };
 
   render() {
@@ -72,7 +74,7 @@ export class FormComponent extends Component {
                             label={this.props.labels[key]}
                             name={key}
                             value={this.props.values[key]}
-                            updateState={this.updateState}
+                            setValues={this.props.setValues}
                           />
                         );
                       })}

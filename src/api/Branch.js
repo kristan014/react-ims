@@ -76,14 +76,49 @@ class Branch extends Component {
   };
 
   // update
-  update = () => {
-    console.log("update")
+  update = (request) => {
+    let id = request.id
+    delete request['id']
+    try {
+      fetch(`http://localhost:3612/api/v1/branch/${id}`, {
+        headers: new Headers({
+          Accept: "application/json; charset=UTF-8",
+          Authorization: "Bearer " + localStorage.getItem("TOKEN"),
+          "Content-Type": "application/json",
+        }),
+        method: "put",
+        body: JSON.stringify(request),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            console.log(data);
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
 
   };
 
   // delete
-  delete = () => {
-    console.log("delete")
+  delete = (id) => {
+    try {
+      fetch(`http://localhost:3612/api/v1/branch/${id}`, {
+        headers: new Headers({
+          Authorization: "Bearer " + localStorage.getItem("TOKEN"),
+        }),
+        method: "delete",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            console.log(data);
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
 
   };
 

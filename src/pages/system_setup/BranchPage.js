@@ -10,7 +10,7 @@ class BranchPage extends Component {
     this.state = {
       // Used for Forms
       labels: {
-        id: 'Id',
+        id: 'id',
         branch_name: "Branch Name",
         manager: "Manager",
         contact_no: "Contact No",
@@ -61,10 +61,15 @@ class BranchPage extends Component {
     };
 
   }
+
+    // update state of forms on every onChange of fields
+  setValues = (name, value) => {
+      this.setState({values:{...this.state.values, [name]: value }});
+   };
+ 
   
   getValues= (values) => {
     this.setState({values:values})
-    // console.log(this.state.values)
   }
   
   render() {
@@ -74,6 +79,7 @@ class BranchPage extends Component {
         <FormComponent 
         labels={this.state.labels} 
         values={this.state.values} 
+        setValues={this.setValues}
         apiSource={import("../../api/Branch")}
         />
         

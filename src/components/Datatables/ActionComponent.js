@@ -24,9 +24,9 @@ export class ActionComponent extends Component {
 
   actionState = (id, btn) => {
     if (btn === "btn-danger") {
-      this.child.current.delete();
+      this.child.current.delete(id);
     } else if (btn === "btn-success") {
-      this.child.current.update();
+      this.child.current.getOne(id);
     } else {
       this.child.current.getOne(id);
     }
