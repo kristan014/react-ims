@@ -4,6 +4,7 @@ class Branch extends Component {
 
   // for datatables
   getDataTable = async (apiItem) => {
+    console.log(123)
     // console.log(localStorage.getItem('TOKEN'))
     try {
       await fetch(`http://localhost:3612/api/v1/branch/datatable`, {

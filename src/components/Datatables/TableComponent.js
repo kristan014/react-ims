@@ -13,6 +13,7 @@ export class TableComponent extends Component {
       rows: []
     };
 
+    console.log(this.props.child)
   }
 
   // update the content of columns
@@ -39,7 +40,10 @@ export class TableComponent extends Component {
         {/* Call Column Component to get the rows */}
         <RowComponent 
         updateRowState={this.updateRowState} 
-        apiSource={this.props.apiSource} />
+        apiSource={this.props.apiSource} 
+        child={this.props.child}
+        component={this.props.component}
+        />
 
         {/* Call Datatable */}
         <DataTable

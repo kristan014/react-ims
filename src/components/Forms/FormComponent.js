@@ -9,51 +9,25 @@ export class FormComponent extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      component: '',
-    }
-
-    // createRef is used to call a method from child component
-    this.child = React.createRef();
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  //solved the no-op mount error
-  componentDidMount() {
-    this.load();
-  }
-
-  // call the api source 
-  load = async () => {
-    let component = (await this.props.apiSource).default;
-    this.setState({ component: component });
-  };
 
   
   // submit the form
   onSubmit = (event) => {
     event.preventDefault();
-
-    // if state is null it will not execute
-     this.state !== null && 
-        // if props id is not null it will not create, instead it will update
+    // if props id is not null it will not create, instead it will update
         this.props.values.id === '' ?
-          this.child.current.create(this.props.values) : 
-          this.child.current.update(this.props.values)
+          this.props.child.create(this.props.values) : 
+          this.props.child.update(this.props.values)
     
   };
 
   render() {
 
     return (
-      <div className="card p-3" id="card">
-
-        {/* reference the child api component */}
-        {this.state.component !== "" && (
-          <this.state.component ref={this.child} />
-        )}
-
+      <div className="card p-3" id="card">     
         <div className="card-block">
           <form id="form" name="form" onSubmit={this.onSubmit}>
             {/*Fields */}
