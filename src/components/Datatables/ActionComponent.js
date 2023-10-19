@@ -41,7 +41,7 @@ export class ActionComponent extends Component {
           <this.state.component
             setState={this.props.setState}
 
-            getBranch={this.props.getBranch} 
+            getValues={this.props.getValues} 
             ref={this.child}
           />
         )}

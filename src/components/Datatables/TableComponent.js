@@ -33,7 +33,8 @@ export class TableComponent extends Component {
           updateColumnState={this.updateColumnState} 
           tableColumn={this.props.tableColumn} 
           apiSource={this.props.apiSource}
-          getBranch={this.props.getBranch} />
+          getValues={this.props.getValues} 
+          />
 
         {/* Call Column Component to get the rows */}
         <RowComponent 

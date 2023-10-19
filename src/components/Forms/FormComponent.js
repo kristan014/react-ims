@@ -16,6 +16,8 @@ export class FormComponent extends Component {
 
     // createRef is used to call a method from child component
     this.child = React.createRef();
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   //solved the no-op mount error
@@ -31,16 +33,13 @@ export class FormComponent extends Component {
 
   // update state of forms on every onChange of fields
   updateState = (name, value) => {
-    this.setState({fields:{...this.state.fields, [name]: value }});
+     this.setState({fields:{...this.state.fields, [name]: value }});
   };
 
   // submit the form
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.fields)
-    console.log(this.props.values)
-
-    // this.state !== null && this.child.current.create(this.state.fields);
+    this.state !== null && this.child.current.create(this.state.fields);
   };
 
   render() {
@@ -66,12 +65,13 @@ export class FormComponent extends Component {
 
                   return (
                     <Row key={index1}>
-                      {array.slice(indexStart,indexEnd).map((key, index2) => {                    
+                      {array.slice(indexStart,indexEnd).map((key, index2) => { 
                         return (
                           <FormInputComponent
                             key={index2}
                             label={this.props.labels[key]}
                             name={key}
+                            value={this.props.values[key]}
                             updateState={this.updateState}
                           />
                         );

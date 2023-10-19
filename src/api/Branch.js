@@ -43,7 +43,7 @@ class Branch extends Component {
         .then((data) => {
           // if (data.success) {
           // console.log(data)
-          this.props.getBranch(data.data);
+          this.props.getValues(data.data);
 
           // }
         });

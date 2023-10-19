@@ -15,10 +15,10 @@ export class FormInput extends Component {
       <Col md={3}>
         <label>{label}</label>
         <input
-          className="form-control"
-          type="text"
-           name={name}
-          value={value}
+          className='form-control'
+          type='text'
+          name={name}
+          defaultValue={[value] || ''}
           onChange={(e) => this.onChange(e)}
         />
       </Col>

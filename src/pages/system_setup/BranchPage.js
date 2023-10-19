@@ -10,6 +10,7 @@ class BranchPage extends Component {
     this.state = {
       // Used for Forms
       labels: {
+        id: 'Id',
         branch_name: "Branch Name",
         manager: "Manager",
         contact_no: "Contact No",
@@ -22,16 +23,17 @@ class BranchPage extends Component {
         unit_floor: "Unit Floor",
       },
       values: {
-        branch_name: "",
-        manager: "",
-        contact_no: "",
-        email: "",
-        region: "",
-        barangay: "",
-        city: "",
-        zip_code: "",
-        street_name: "",
-        unit_floor: "",
+        id: '',
+        branch_name: '',
+        manager: '',
+        contact_no: '',
+        email: '',
+        region: '',
+        barangay: '',
+        city: '',
+        zip_code: '',
+        street_name: '',
+        unit_floor: '',
       },
 
       // assign to column component of Datatables
@@ -60,7 +62,7 @@ class BranchPage extends Component {
 
   }
   
-  getBranch = (values) => {
+  getValues= (values) => {
     this.setState({values:values})
     // console.log(this.state.values)
   }
@@ -69,12 +71,16 @@ class BranchPage extends Component {
     return (
       <div>
         <h1>Branches</h1>
-        <FormComponent labels={this.state.labels} values={this.state.values} apiSource={import("../../api/Branch")}/>
+        <FormComponent 
+        labels={this.state.labels} 
+        values={this.state.values} 
+        apiSource={import("../../api/Branch")}
+        />
+        
         <TableComponent
           title={"Branches"}
           tableColumn={this.state.tableColumn}
-          getBranch={this.getBranch} 
-          // to call the API for datatables of branch
+          getValues={this.getValues} 
           apiSource={import("../../api/Branch")}
         />
       </div>
