@@ -79,7 +79,6 @@ class Branch extends Component {
   // update
   update = (request) => {
     let id = request.id
-    delete request['id']
     try {
       fetch(`http://localhost:3612/api/v1/branch/${id}`, {
         headers: new Headers({

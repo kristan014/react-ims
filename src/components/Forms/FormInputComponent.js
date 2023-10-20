@@ -18,7 +18,7 @@ export class FormInput extends Component {
           className='form-control'
           type='text'
           name={name}
-          defaultValue={[value] || ''}
+          value={[value] || ''}
           onChange={(e) => this.onChange(e)}
         />
       </Col>
