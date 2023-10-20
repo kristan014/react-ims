@@ -19,8 +19,8 @@ export class FormComponent extends Component {
     event.preventDefault();
     // if props id is not null it will not create, instead it will update
         this.props.values.id === '' ?
-          this.props.child.create(this.props.values) : 
-          this.props.child.update(this.props.values)
+          this.props.dataSource.current.create(this.props.values) : 
+          this.props.dataSource.current.update(this.props.values)
     
   };
 

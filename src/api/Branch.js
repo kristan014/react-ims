@@ -3,8 +3,7 @@ import { Component } from "react";
 class Branch extends Component {
 
   // for datatables
-  getDataTable = async (apiItem) => {
-    console.log(123)
+  getDataTable = async (updateRowState) => {
     // console.log(localStorage.getItem('TOKEN'))
     try {
       await fetch(`http://localhost:3612/api/v1/branch/datatable`, {
@@ -19,7 +18,8 @@ class Branch extends Component {
         .then((data) => {
           // if (data.success) {
           // console.log(data)
-          this.props.updateRowState(data.data);
+
+          updateRowState(data.data);
 
           // }
         });
@@ -29,7 +29,7 @@ class Branch extends Component {
   };
 
   // for getting specific row
-  getOne = async(id)  => {
+  getOne = async(id,getValues)  => {
 
     try {
       await fetch(`http://localhost:3612/api/v1/branch/${id}`, {
@@ -43,8 +43,8 @@ class Branch extends Component {
         .then((response) => response.json())
         .then((data) => {
           // if (data.success) {
-          // console.log(data)
-          this.props.getValues(data.data);
+          console.log(data)
+          getValues(data.data);
 
           // }
         });

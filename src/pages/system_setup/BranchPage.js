@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import adminLayout from "../../hoc/adminLayout";
 import TableComponent from "../../components/Datatables/TableComponent";
 import FormComponent from "../../components/Forms/FormComponent";
+import LoadComponent from "../../helpers/LoadComponent";
 
 class BranchPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      component: "",
-      // Used for Forms
+      dataSource: '',
+      isLoading: true,
+
       labels: {
         id: "id",
         branch_name: "Branch Name",
@@ -23,6 +25,7 @@ class BranchPage extends Component {
         street_name: "Street Name",
         unit_floor: "Unit Floor",
       },
+
       values: {
         id: "",
         branch_name: "",
@@ -60,21 +63,13 @@ class BranchPage extends Component {
       ],
     };
 
-    // createRef is used to call a method from child component
-    this.child = React.createRef();
   }
 
-  //solved the no-op mount error
-  componentDidMount() {
-    this.load();
+
+  setSource = (newDataSource) => {
+    this.setState({ dataSource: newDataSource.dataSource })
+    this.setState({ isLoading: false })
   }
-
-  // call the api source
-  load = async () => {
-    let component = (await import("../../api/Branch")).default;
-    this.setState({ component: component });
-
-  };
 
   // update state of forms on every onChange of fields
   setValues = (name, value) => {
@@ -85,27 +80,30 @@ class BranchPage extends Component {
     this.setState({ values: values });
   };
 
+
   render() {
+  
     return (
       <div>
-        {this.state.component !== "" && <this.state.component ref={this.child} />}
+        <LoadComponent setSource={this.setSource} source={import("../../api/Branch")} />
+        {(this.state.isLoading !== true) &&
+          <>
+            <h1>Branches</h1>
+            <FormComponent
+              labels={this.state.labels}
+              values={this.state.values}
+              setValues={this.setValues}
+              dataSource={this.state.dataSource}
+            /> 
 
-        <h1>Branches</h1>
-        <FormComponent
-          labels={this.state.labels}
-          values={this.state.values}
-          setValues={this.setValues}
-          child={this.child}
-        />
-
-        <TableComponent
-          title={"Branches"}
-          tableColumn={this.state.tableColumn}
-          getValues={this.getValues}
-          child={this.child}
-          apiSource={import("../../api/Branch")}
-          component={this.state.component}
-        />
+            <TableComponent
+              title={"Branches"}
+              tableColumn={this.state.tableColumn}
+              getValues={this.getValues}
+              dataSource={this.state.dataSource}
+            />
+          </>
+        }
       </div>
     );
   }

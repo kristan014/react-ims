@@ -13,7 +13,7 @@ export class TableComponent extends Component {
       rows: []
     };
 
-    console.log(this.props.child)
+    
   }
 
   // update the content of columns
@@ -29,20 +29,20 @@ export class TableComponent extends Component {
   render() {
     return (
       <div className="mt-3">
+
         {/* Call Column Component to get the columns */}
         <ColumnComponent 
           updateColumnState={this.updateColumnState} 
           tableColumn={this.props.tableColumn} 
-          apiSource={this.props.apiSource}
           getValues={this.props.getValues} 
+          dataSource={this.props.dataSource}
+
           />
 
         {/* Call Column Component to get the rows */}
         <RowComponent 
         updateRowState={this.updateRowState} 
-        apiSource={this.props.apiSource} 
-        child={this.props.child}
-        component={this.props.component}
+        dataSource={this.props.dataSource}
         />
 
         {/* Call Datatable */}

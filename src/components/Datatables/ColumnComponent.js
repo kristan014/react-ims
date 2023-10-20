@@ -32,7 +32,7 @@ class ColumnComponent extends Component {
                                 id={row.id} 
                                 btnColor={"btn-secondary"} 
                                 btnIcon={"fa-info"} 
-                                apiSource={this.props.apiSource} 
+                                dataSource={this.props.dataSource} 
                                 getValues={this.props.getValues}  
                             />
 
@@ -41,7 +41,7 @@ class ColumnComponent extends Component {
                                 id={row.id} 
                                 btnColor={"btn-success"} 
                                 btnIcon={"fa-edit"} 
-                                apiSource={this.props.apiSource} 
+                                dataSource={this.props.dataSource} 
                                 getValues={this.props.getValues} 
                             />
 
@@ -50,7 +50,7 @@ class ColumnComponent extends Component {
                                 id={row.id} 
                                 btnColor={"btn-danger"} 
                                 btnIcon={"fa-trash"} 
-                                apiSource={this.props.apiSource}
+                                dataSource={this.props.dataSource}
                             />
 
                         </Stack>

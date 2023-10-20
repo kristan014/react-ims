@@ -1,34 +1,15 @@
 import React, { Component } from "react";
 
 export class ActionComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      component: "",
-    };
-
-    this.child = React.createRef();
-  }
-
-  //solved the no-op mount error
-  componentDidMount() {
-    this.load();
-  }
-
-  // call the api source that will be displayed to the pages
-  load = async () => {
-    let component = (await this.props.apiSource).default;
-    this.setState({ component: component });
-  };
 
   actionState = (id, btn) => {
     if (btn === "btn-danger") {
-      this.child.current.delete(id);
+      this.props.dataSource.current.delete(id);
     } else if (btn === "btn-success") {
-      this.child.current.getOne(id);
+      this.props.dataSource.current.getOne(id,this.props.getValues);
     } else {
-      this.child.current.getOne(id);
+      this.props.dataSource.current.getOne(id,this.props.getValues);
+      
     }
   };
 
@@ -37,14 +18,6 @@ export class ActionComponent extends Component {
 
     return (
       <>
-        {this.state.component !== "" && (
-          <this.state.component
-            setState={this.props.setState}
-
-            getValues={this.props.getValues} 
-            ref={this.child}
-          />
-        )}
 
         <button
           type="button"
