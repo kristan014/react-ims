@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap";
 
 export class FormInput extends Component {
 
-  
+  // change the values state on every change in the input field
   onChange = (e) => {
     this.props.setValues(e.target.name,e.target.value)
   };

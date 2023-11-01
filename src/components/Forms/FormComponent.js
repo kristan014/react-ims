@@ -30,9 +30,10 @@ export class FormComponent extends Component {
       <div className="card p-3" id="card">     
         <div className="card-block">
           <form id="form" name="form" onSubmit={this.onSubmit}>
-            {/*Fields */}
+            {/* Input fields */}
             <Stack gap={3}>
               {Object.keys(this.props.labels).map((key, index1, array) => {
+              {/* this will make the layout to 4 input fields per row */}
                 if ((index1 + 1) % 4 === 0 || index1 === 0) {
 
                   // index for slicing inner loop
@@ -41,6 +42,7 @@ export class FormComponent extends Component {
 
                   return (
                     <Row key={index1}>
+                    {/* this slice map displays the start after tha last input field ends until the indexEnd meet*/}
                       {array.slice(indexStart,indexEnd).map((key, index2) => { 
                         return (
                           <FormInputComponent
@@ -63,18 +65,23 @@ export class FormComponent extends Component {
             <Row className="mt-3">
               <Col>
                 <Stack direction="horizontal" gap={2}>
+                  {/* Cancel Button */}
                   <FormButtonComponent
                     type={"reset"}
                     color={"btn-secondary"}
                     name={"Cancel"}
                     show={true}
                   />
+
+                  {/* Submit Button */}
                   <FormButtonComponent
                     type={"submit"}
                     color={"btn-primary"}
                     name={"Submit"}
                     show={true}
                   />
+
+                  {/* Update Button */}
                   <FormButtonComponent
                     type={"submit"}
                     color={"btn-primary"}

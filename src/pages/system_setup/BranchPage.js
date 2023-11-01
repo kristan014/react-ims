@@ -65,7 +65,7 @@ class BranchPage extends Component {
 
   }
 
-
+  // set
   setSource = (newDataSource) => {
     this.setState({ dataSource: newDataSource.dataSource })
     this.setState({ isLoading: false })
@@ -76,6 +76,7 @@ class BranchPage extends Component {
     this.setState({ values: { ...this.state.values, [name]: value } });
   };
 
+  // get the values of selected row in the datatables
   getValues = (values) => {
     this.setState({ values: values });
   };

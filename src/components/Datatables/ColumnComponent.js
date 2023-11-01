@@ -27,7 +27,7 @@ class ColumnComponent extends Component {
                     cell: (row) => (
                         <Stack direction="horizontal" gap={1}>
 
-                            {/* Update */}
+                            {/* View */}
                             <ActionComponent 
                                 id={row.id} 
                                 btnColor={"btn-secondary"} 

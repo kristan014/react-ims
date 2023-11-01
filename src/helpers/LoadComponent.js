@@ -7,11 +7,13 @@ export class LoadComponent extends Component {
       component: ''
     }
 
+    // createRef used to be able to call a child component from a parent
     this.dataSource = React.createRef();
   }
 
 
   //solved the no-op mount error
+  //ComponentDidUpdate
   componentDidMount() {
     this.load();
   }
@@ -27,6 +29,7 @@ export class LoadComponent extends Component {
   render() {
     return (
       <>
+        {/* call the component if state component is not null */}
         {this.state.component !== "" && <this.state.component ref={this.dataSource} />}
       </>
     )

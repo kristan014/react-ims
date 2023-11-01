@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 export class ActionComponent extends Component {
 
+  // execute the function according to the button type
   actionState = (id, btn) => {
     if (btn === "btn-danger") {
       this.props.dataSource.current.delete(id);
